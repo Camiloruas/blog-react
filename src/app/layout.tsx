@@ -1,46 +1,29 @@
-import "./globals.css";
 import type { Metadata } from "next";
-import Link from "next/link";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Meu Blog",
-  description: "Exemplo com layout fixo",
+    title: "The blog - Este é um blog com Next.js",
+    description: "Essa seria a descrição dessa página.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode; }) {
+type RootLayoutProps = {
+    children: React.ReactNode;
+};
 
-  return (
-  
-    <html lang="en">
-      <body>
-        {/* Header fixo */}
-        <header style={{ padding: "10px", background: "#222", color: "white" }}>
-          <h1>Meu Blog</h1>
-          <nav>
-            <Link href="/" style={{ marginRight: "10px", color: "white" }}>
-              Home
-            </Link>
-            <a href="/about" style={{ color: "white" }}>
-              Sobre
-            </a>
-          </nav>
-        </header>
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
+    return (
+        <html lang="pt-BR">
+            <body className="qualquer">
+                <header>
+                    <h1>Header</h1>
+                </header>
 
-        {/* Aqui entra o conteúdo da página */}
-        <main style={{ padding: "20px" }}>{children}</main>
+                <div className="bg-red-500">{children}</div>
 
-        {/* Rodapé */}
-        <footer
-          style={{
-            marginTop: "20px",
-            padding: "10px",
-            background: "#eee",
-            color: "black",
-          }}
-        >
-          <p>© 2025 - Todos os direitos reservados</p>
-        </footer>
-      </body>
-    </html>
-  );
+                <footer>
+                    <h1>Footer</h1>
+                </footer>
+            </body>
+        </html>
+    );
 }

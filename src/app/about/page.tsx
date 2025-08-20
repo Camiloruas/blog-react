@@ -1,3 +1,3 @@
 export default function AboutPage() {
-  return <h2> Sobre nós: aqui vai o conteúdo da página Sobre.</h2>;
+    return <h1>About</h1>;
 }
